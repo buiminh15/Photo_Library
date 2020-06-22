@@ -1,14 +1,15 @@
-export const DashboardActionTypes = {
-    GET_IMAGES: "GET_IMAGES"
+export const ImagesActionTypes = {
+    GET_IMAGE_THUMB: "GET_IMAGE_THUMB",
+    GET_IMAGE_FULL: "GET_IMAGE_FULL",
 }
 
-const initialDashboardState = {
+const initialImagesState = {
     images: [],
 }
 
-export const DashboardReducer = (state = initialDashboardState, action) => {
+export const ImagesReducer = (state = initialImagesState, action) => {
     switch (action.type) {
-        case DashboardActionTypes.GET_IMAGES:
+        case ImagesActionTypes.GET_IMAGE_THUMB:
             var images = action.payload.data.images
             var data = {
                 ...state,

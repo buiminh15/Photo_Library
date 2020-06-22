@@ -3,25 +3,16 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { UserSelector, UserDispatch } from '../../../services/store/User/UserMapping'
 import DefaultComponent from '../../Extend/Default/DefaultComponent'
-import Notify from '../../Extend/Message/Notify'
-import { UIClass, MSGClass } from '../../common'
 
 class RegisterPanel extends React.Component {
     constructor (props) {
         super(props)
-        this.UI = UIClass(this)
-        this.MSG = MSGClass(this)
         this.state = {
             firstName: '',
             lastName: '',
             username: '',
             email: '',
             password: '',
-            showNotify: false,
-            notify: {
-                type: this.UI.getLocationState("type") ?? 'none',
-                message: this.UI.getLocationState("message") ?? '',
-            },
             text: {
                 forgot: 'Forgot your password?',
                 submit: 'Join',
@@ -36,7 +27,6 @@ class RegisterPanel extends React.Component {
     }
 
     onSubmitClick = e => {
-        this.MSG.turnOff()
         this.props.turnOnLoading()
         var data = {
             username: this.state.username,
@@ -45,8 +35,6 @@ class RegisterPanel extends React.Component {
         }
         if (data.username.length === 0 || data.email.length === 0 || data.password.length === 0) {
             this.props.turnOffLoading()
-            this.MSG.setNotify('error', this.state.text.messageRequired)
-            this.MSG.turnOn()
         } else {
             this.props.createUser(data)
                 .then(res => {
@@ -56,8 +44,6 @@ class RegisterPanel extends React.Component {
                     })
                 })
                 .catch(error => {
-                    this.MSG.setNotify('error', this.state.text.messageError)
-                    this.MSG.turnOn()
                     this.props.turnOffLoading()
                 })
         }
@@ -65,7 +51,6 @@ class RegisterPanel extends React.Component {
 
     render = () => (
         <div className={"register-panel flex-column center h100 px-3" + this.props.getLoadingClass()}>
-            <Notify type={this.state.showNotify ? "error" : "none"} hoz="bottom" ver="right" text={this.state.notify.message}></Notify>
             <div className="register-logo mb-4">
                 <div className="register-login flex-row center">
                     <div>Already have an account?</div>

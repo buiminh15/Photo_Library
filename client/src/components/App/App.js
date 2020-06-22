@@ -3,8 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import LoginPanel from '../User/Login/LoginPanel'
 import ForgotPasswordPanel from '../User/ForgotPassword/ForgotPasswordPanel'
 import RegisterPanel from '../User/Register/RegisterPanel'
-import VerifyPanel from '../User/Verify/VerifyPanel'
-import Main from '../Pages/Main/Main'
+import Home from '../Pages/Home/Home'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Store, Persistor } from '../../services/store/Storage'
@@ -26,8 +25,7 @@ class App extends React.Component {
                             <Route exact path="/forgot_password" component={ForgotPasswordPanel}></Route>
                             <Route exact path="/login" component={LoginPanel}></Route>
                             <Route exact path="/join" component={RegisterPanel}></Route>
-                            <Route exact path="/verify/:hash" component={VerifyPanel}></Route>
-                            <Route path="/*" component={Main}></Route>
+                            <Route path="/*" component={Home}></Route>
                         </Switch>
                     </BrowserRouter>
                 </PersistGate>

@@ -2,13 +2,13 @@ import { combineReducers } from 'redux'
 import { AuthentReducer } from './Authent/AuthentReducer'
 import { AccountReducer } from './Account/AccountReducer'
 import { UserReducer } from './User/UserReducer'
-import { DashboardReducer } from './Dashboard/DashboardReducer'
+import { ImagesReducer } from './Images/ImagesReducer'
 
 const AllReducer = {
     authent: AuthentReducer,
     account: AccountReducer,
     user: UserReducer,
-    dashboard: DashboardReducer,
+    home: ImagesReducer,
 }
 
 export default combineReducers(AllReducer)

@@ -3,24 +3,15 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { UserSelector, UserDispatch } from '../../../services/store/User/UserMapping'
 import DefaultComponent from '../../Extend/Default/DefaultComponent'
-import Notify from '../../Extend/Message/Notify'
-import { UIClass, MSGClass } from '../../common'
 import './Login.css'
 
 class LoginPanel extends React.Component {
     constructor (props) {
         super(props)
-        this.UI = UIClass(this)
-        this.MSG = MSGClass(this)
         this.state = {
             email: '',
             password: '',
             remember: true,
-            showNotify: true,
-            notify: {
-                type: this.UI.getLocationState("type") ?? 'none',
-                message: this.UI.getLocationState("message") ?? '',
-            },
             text: {
                 remember: 'Remember',
                 forgot: 'Forgot your password?',
@@ -41,7 +32,6 @@ class LoginPanel extends React.Component {
     }
 
     onSubmitClick = e => {
-        this.MSG.setNotify('none')
         this.props.turnOnLoading()
         var data = {
             email: this.state.email,
@@ -52,7 +42,6 @@ class LoginPanel extends React.Component {
             this.props.remember(data)
         }
         if (data.email.length === 0 || data.password.length === 0) {
-            this.MSG.setNotify('error', this.state.text.messageRequired)
             this.props.turnOffLoading()
         } else {
             this.props.login(data)
@@ -66,14 +55,12 @@ class LoginPanel extends React.Component {
                 .catch(error => {
                     console.log("login error:", error)
                     this.props.turnOffLoading()
-                    this.MSG.setNotify('error', error.data.message ?? error.statusText)
                 })
         }
     }
 
     render = () => (
         <div className={"login-panel flex-column center h100 px-3" + this.props.getLoadingClass()}>
-            <Notify type={this.state.notify.type ?? "none"} hoz="bottom" ver="right" text={this.state.notify.message}></Notify>
             <div className="login-input flex-column xs-12 md-6 amb-4">
                 <div className="login-email amb-2">
                     <div>Email</div>
