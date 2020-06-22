@@ -1,0 +1,22 @@
+.flex-column { display: flex; flex-direction: column; }
+.flex-row { display: flex; flex-direction: row; }
+.flex-1 { flex-grow: 1; }
+.flex-2 { flex-grow: 2; }
+.flex-3 { flex-grow: 3; }
+.flex-4 { flex-grow: 4; }
+.flex-wrap { flex-wrap: wrap; }
+.inline-block { display: inline-block; }
+.over-x-auto { overflow-x: auto; }
+.over-y-auto { overflow-y: auto; }
+.center { align-items: center; justify-content: center; }
+.space-between { justify-content: space-between; }
+.hoz-center { align-items: center; }
+.ver-center { justify-content: center; }
+.self-hoz-center { align-self: center; }
+.self-ver-center { justify-self: center; }
+.no-select { user-select: none; }
+.table { display: table; }
+.table > div { display: table-row; }
+.table > div > div { display: table-cell; }
+.display-none { display: none; }
+.hr { border-bottom: 1px solid #aaa; }

@@ -1,0 +1,4 @@
+.Feedback-panel .Feedback-item textarea {
+    resize: none;
+    box-sizing: border-box;
+}

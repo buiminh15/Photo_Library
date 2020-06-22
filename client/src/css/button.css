@@ -1,0 +1,42 @@
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-success {
+    color: white;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.btn-danger {
+    color: white;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.btn-warning {
+    color: black;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+.btn-info {
+    color: white;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.btn-primary-link {
+    color: #007bff;
+    background-color: transparent;
+}
+.btn-info-link {
+    color: #17a2b8;
+    background-color: transparent;
+}
+.btn-black {
+    color: white;
+    background-color: black;
+}
